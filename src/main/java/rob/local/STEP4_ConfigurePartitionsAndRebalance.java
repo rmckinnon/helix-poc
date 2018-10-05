@@ -13,6 +13,5 @@ public class STEP4_ConfigurePartitionsAndRebalance {
         ZKHelixAdmin admin = new ZKHelixAdmin(Conf.ZK_ADDRESS);
 
         admin.addResource(Conf.CLUSTER_NAME, RESOURCE_NAME, NUM_PARTITIONS, MasterSlaveSMD.name, MODE);
-        //admin.rebalance(Conf.CLUSTER_NAME, RESOURCE_NAME, NUM_REPLICAS);
     }
 }
