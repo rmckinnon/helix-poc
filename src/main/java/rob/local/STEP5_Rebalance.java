@@ -6,7 +6,7 @@ import org.apache.helix.model.MasterSlaveSMD;
 public class STEP5_Rebalance {
 
     static String RESOURCE_NAME = "data";
-    static int NUM_REPLICAS = 3;
+    static int NUM_REPLICAS = 2;
 
     public static void main(String[] args) {
         ZKHelixAdmin admin = new ZKHelixAdmin(Conf.ZK_ADDRESS);

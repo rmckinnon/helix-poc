@@ -2,12 +2,14 @@ package rob.local;
 
 import org.apache.helix.manager.zk.ZKHelixAdmin;
 import org.apache.helix.model.MasterSlaveSMD;
+import org.apache.helix.model.OnlineOfflineSMD;
 
 public class STEP3_ConfigureStateModelDefinition {
     public static void main(String[] args) {
         ZKHelixAdmin admin = new ZKHelixAdmin(Conf.ZK_ADDRESS);
 
-        MasterSlaveSMD smd = new MasterSlaveSMD();
+//        MasterSlaveSMD smd = new MasterSlaveSMD();
+        OnlineOfflineSMD smd = new OnlineOfflineSMD();
 
 //        StateModelDefinition.Builder builder = new StateModelDefinition.Builder(Conf.STATE_MODEL_NAME);
 //        builder.addState(Conf.MASTER, 1)
@@ -26,7 +28,7 @@ public class STEP3_ConfigureStateModelDefinition {
 
 //        StateModelDefinition stateModelDefinition = builder.build();
 
-        admin.addStateModelDef(Conf.CLUSTER_NAME, MasterSlaveSMD.name, smd);
+        admin.addStateModelDef(Conf.CLUSTER_NAME, smd.name, smd);
 
     }
 }

@@ -1,9 +1,6 @@
 package rob.local;
 
-import org.apache.helix.HelixManager;
-import org.apache.helix.HelixManagerFactory;
-import org.apache.helix.InstanceType;
-import org.apache.helix.NotificationContext;
+import org.apache.helix.*;
 import org.apache.helix.model.ExternalView;
 import org.apache.helix.model.InstanceConfig;
 import org.apache.helix.model.LiveInstance;
@@ -25,11 +22,20 @@ public class STEP7_Spectator {
 
 
 
-            RoutingTableProvider routingTableProvider = new RoutingTableProvider();
+            //RoutingTableProvider routingTableProvider = new RoutingTableProvider();
+//            RoutingTableProvider routingTableProvider = new RoutingTableProvider(manager, PropertyType.EXTERNALVIEW);
+            RoutingTableProvider routingTableProvider = new RoutingTableProvider(manager);
+
             manager.addExternalViewChangeListener(routingTableProvider);
 
-            List<InstanceConfig> list = routingTableProvider.getInstances("data", "data_0",
+            List<InstanceConfig> masterList = routingTableProvider.getInstances("data", "data_0",
                     "MASTER");
+
+            List<InstanceConfig> slaveList = routingTableProvider.getInstances("data", "data_0",
+                    "SLAVE");
+
+            List<InstanceConfig> list = masterList;
+            list.addAll(slaveList);
 
             System.out.println(list.size()); // This is coming back as zero
 
