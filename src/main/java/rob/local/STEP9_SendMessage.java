@@ -8,7 +8,7 @@ import org.apache.helix.model.Message;
 import java.util.UUID;
 
 
-public class STEP8_SendMessage {
+public class STEP9_SendMessage {
     public static void main(String[] args) {
         try {
             HelixManager manager = HelixManagerFactory.getZKHelixManager(

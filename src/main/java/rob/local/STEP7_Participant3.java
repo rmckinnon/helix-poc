@@ -6,12 +6,12 @@ import org.apache.helix.InstanceType;
 import org.apache.helix.model.MasterSlaveSMD;
 import org.apache.helix.participant.StateMachineEngine;
 
-public class STEP6_Participant2 {
+public class STEP7_Participant3 {
     public static void main(String[] args) {
         try {
             HelixManager manager = HelixManagerFactory.getZKHelixManager(
                     Conf.CLUSTER_NAME,
-                    "localhost_7002",
+                    "localhost_7003",
                     InstanceType.PARTICIPANT,
                     Conf.ZK_ADDRESS);
 

@@ -9,7 +9,7 @@ import org.apache.helix.spectator.RoutingTableProvider;
 import java.util.List;
 
 
-public class STEP7_Spectator {
+public class STEP8_Spectator {
     public static void main(String[] args) {
         try {
             HelixManager manager = HelixManagerFactory.getZKHelixManager(
