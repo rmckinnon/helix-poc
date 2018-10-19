@@ -19,6 +19,6 @@ public class STEP5_Rebalance {
         idealState.setRebalancerClassName(MyRebalancer.class.getName());
         admin.setResourceIdealState(Conf.CLUSTER_NAME, Conf.RESOURCE_NAME, idealState);
 
-        admin.rebalance(Conf.CLUSTER_NAME, RESOURCE_NAME, NUM_REPLICAS);
+        //admin.rebalance(Conf.CLUSTER_NAME, RESOURCE_NAME, NUM_REPLICAS);
     }
 }
