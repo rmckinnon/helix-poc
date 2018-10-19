@@ -4,6 +4,7 @@ import org.apache.helix.HelixManager;
 import org.apache.helix.HelixManagerFactory;
 import org.apache.helix.InstanceType;
 import org.apache.helix.model.MasterSlaveSMD;
+import org.apache.helix.model.OnlineOfflineSMD;
 import org.apache.helix.participant.StateMachineEngine;
 
 public class STEP7_Participant3 {
@@ -17,8 +18,8 @@ public class STEP7_Participant3 {
 
             StateMachineEngine stateMachineEngine = manager.getStateMachineEngine();
 
-            MasterSlaveStateModelFactory stateModelFactory = new MasterSlaveStateModelFactory();
-            stateMachineEngine.registerStateModelFactory(MasterSlaveSMD.name, stateModelFactory);
+            OnlineOfflineStateModelFactory stateModelFactory = new OnlineOfflineStateModelFactory();
+            stateMachineEngine.registerStateModelFactory(OnlineOfflineSMD.name, stateModelFactory);
             manager.connect();
         } catch (Exception e) {
             e.printStackTrace();

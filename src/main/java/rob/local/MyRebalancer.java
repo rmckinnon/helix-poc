@@ -7,9 +7,7 @@ import org.apache.helix.controller.stages.ClusterDataCache;
 import org.apache.helix.controller.stages.CurrentStateOutput;
 import org.apache.helix.model.IdealState;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class MyRebalancer implements Rebalancer {
 
@@ -21,7 +19,9 @@ public class MyRebalancer implements Rebalancer {
 
     public IdealState computeNewIdealState(String resourceName, IdealState currentIdealState, CurrentStateOutput currentStateOutput, ClusterDataCache clusterData) {
 
-        currentIdealState.setPreferenceList("data_0", Arrays.asList("localhost_7001"));
+        currentIdealState.setPreferenceList("data_0", Arrays.asList("localhost_7001", "localhost_7002"));
+        currentIdealState.setPreferenceList("data_1", Arrays.asList("localhost_7003", "localhost_7004"));
+
         return currentIdealState;
     }
 }
